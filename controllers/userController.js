@@ -8,6 +8,7 @@ export const createUser = (req, res) => {
   res.status(200).json({
     code: 200,
     answer: "User profile created successfully!",
+    user: { id, username, age },
   });
 };
 
@@ -31,7 +32,7 @@ export const updateUser = (req, res) => {
     if (age) user.age = age;
     if (email) user.email = email;
     if (password) user.password = password;
-    res.json(user);
+    res.json({ id, username, age });
   } else {
     res.status(404).json({ message: "User not found" });
   }
